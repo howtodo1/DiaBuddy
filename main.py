@@ -6,14 +6,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    client = PyCAI('e5076cced22fb9bffd8fd154c7e6225a454d7d19')
+    client = PyCAI('[key here]')
     client.chat.new_chat('MqotBa3wzY3Bxyd6a1vbRu1hp_5nfbT263OtQoLGsW0')
     return render_template('index.html')
 
 
 @app.route("/chat", methods=['POST'])
 def chat():
-    client = PyCAI('e5076cced22fb9bffd8fd154c7e6225a454d7d19')
+    client = PyCAI('[key here]')
     chat = client.chat.get_chat("MqotBa3wzY3Bxyd6a1vbRu1hp_5nfbT263OtQoLGsW0")
     participants = chat['participants']
     if not participants[0]['is_human']:
